@@ -1,0 +1,103 @@
+.select_title{
+    display: flex;
+    align-items: center;
+    width:320px;
+    background-color: transparent;
+}
+.select_title::before{
+    content:"";
+    position: absolute;
+    transition: all 0.5s ease;
+    width:14px;
+    height:14px;
+    background-size: 14px;
+    right: 15px;
+    background-repeat: no-repeat;
+    background-image: url("image/down-arrow.svg");
+}
+.select_input{
+    display: none;
+}
+.select_content{
+    position: absolute;
+    width: 100%;
+    border: 1px solid rgba(31, 32, 65, 0.25);
+    padding:0 7px 7px 15px;
+    transition: all 0.5s ease;
+    background-color: white;
+
+}
+.select_content *{
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 700;
+}
+.option_content{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top:7px;
+}
+.option_action > input{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    width:30px;
+    height:30px;
+    border-radius: 50%;
+    background-color: transparent;
+    border: 1px solid rgba(31, 32, 65, 0.75);
+    font-size: 18px;
+    font-weight: 400;
+    color: rgba(31, 32, 65, 0.5);
+}
+.option_action > input:focus{
+    outline: none;
+}
+.unactive_option_but{
+    opacity: 0.4;
+}
+.option_action p{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.option_action{
+    display: flex;
+    align-items: center;
+}
+.select{
+    position: relative;
+    display: block;
+    &[data-state="active"]{
+        .select_title{
+            border-radius: 5px 5px 0 0;
+        }
+        .select_content{
+            top:44px;
+            transform: scaleY(1);
+        }
+        .select_title::before{
+            transform: rotate(180deg);
+        }
+    }
+    &[data-state=""]{
+        .select_content{
+            top:-32px;
+            transform: scaleY(0);
+        }
+        .select_title::before{
+            transform: rotate(0deg);
+        }
+    }
+}
+.option_content_footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top:19px;
+}
+.option_content_footer *{
+    color:#BC9CFF;
+    cursor: pointer;
+}
